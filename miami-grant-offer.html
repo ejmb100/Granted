@@ -97,10 +97,15 @@
     const counts = [['project',2000],['money',500],['about',500],['miami',700]];
     counts.forEach(([id,max]) => { const update = () => $(id + '-count').textContent = $(id).value.length + ' / ' + max; $(id).addEventListener('input', update); update(); });
     let imported = null;
-    try { imported = JSON.parse(localStorage.getItem('miamiGrantOfferDraft') || 'null'); } catch (error) { imported = null; }
+    // The local application preview receives an approved draft through shared
+    // same-origin storage. The URL fallback only supports legacy demo links.
+    try {
+      const sharedDraft = new URLSearchParams(window.location.search).get('draft');
+      imported = sharedDraft ? JSON.parse(decodeURIComponent(escape(atob(sharedDraft)))) : JSON.parse(localStorage.getItem('miamiGrantOfferDraft') || 'null');
+    } catch (error) { imported = null; }
     if (imported) {
       $('name').value = imported.name || 'Claudette Rivera'; $('email').value = imported.email || 'claudette@tidepath.org'; $('organization').value = imported.organization || 'Tidepath Family Alliance'; $('title').value = imported.title || 'Youth Wellness in Miami-Dade'; $('project').value = imported.project || ''; $('money').value = imported.money || ''; $('about').value = imported.about || ''; $('miami').value = imported.miami || '';
-      $('prefill').classList.add('active'); counts.forEach(([id,max]) => $(id).dispatchEvent(new Event('input')));
+      $('prefill').classList.add('active'); $('prefill').innerHTML = '<strong>Approved Tidepath draft imported.</strong> This fictional portal is part of the Candid sample-data demo. Review every answer, add anything the funder needs, and submit only when you are ready.'; counts.forEach(([id,max]) => $(id).dispatchEvent(new Event('input')));
     }
     $('save-draft').addEventListener('click', () => { localStorage.setItem('miamiGrantOfferForm', JSON.stringify(Object.fromEntries(new FormData($('grant-form'))))); $('save-draft').textContent = 'Draft saved'; });
     $('grant-form').addEventListener('submit', event => { event.preventDefault(); $('success').style.display = 'block'; $('success').scrollIntoView({ behavior:'smooth', block:'center' }); });

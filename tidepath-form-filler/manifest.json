@@ -1,0 +1,40 @@
+{
+  "manifest_version": 3,
+  "name": "Tidepath Safe Form Filler",
+  "version": "0.1.0",
+  "description": "Places approved Tidepath grant answers into portal fields. It never submits an application.",
+  "permissions": ["storage", "activeTab"],
+  "host_permissions": [
+    "https://tidepath-grant-assistant.vercel.app/*",
+    "https://miami-grant-offer.vercel.app/*",
+    "https://*.submittable.com/*",
+    "https://*.fluxx.io/*",
+    "https://*.foundant.com/*",
+    "https://*.smartsimple.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "action": {
+    "default_title": "Tidepath Safe Form Filler"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://tidepath-grant-assistant.vercel.app/*"],
+      "js": ["tidepath-bridge.js"],
+      "run_at": "document_start"
+    },
+    {
+      "matches": [
+        "https://miami-grant-offer.vercel.app/*",
+        "https://*.submittable.com/*",
+        "https://*.fluxx.io/*",
+        "https://*.foundant.com/*",
+        "https://*.smartsimple.com/*"
+      ],
+      "js": ["portal-filler.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
