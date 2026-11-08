@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Miami Grant Offer — Application</title>
+  <style>
+    :root { --ink:#121519; --paper:#fffdf8; --orange:#f05b32; --orange-dark:#c84421; --teal:#0e786f; --line:#d9d5ca; --muted:#65625b; --sun:#ffc857; }
+    * { box-sizing:border-box; }
+    body { margin:0; background:var(--paper); color:var(--ink); font-family:Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+    .site-header { background:var(--ink); color:white; padding:20px max(28px, calc((100vw - 1120px)/2)); display:flex; align-items:center; justify-content:space-between; gap:20px; }
+    .brand { display:flex; align-items:center; gap:12px; font-family:Georgia, serif; font-size:25px; font-weight:700; letter-spacing:-.7px; }
+    .burst { width:31px; height:31px; background:var(--sun); clip-path:polygon(50% 0,60% 31%,82% 12%,70% 38%,100% 37%,73% 52%,96% 73%,65% 65%,64% 100%,50% 72%,34% 100%,35% 65%,4% 73%,27% 52%,0 37%,30% 38%,18% 12%,40% 31%); }
+    .site-header a { color:#fff; text-decoration:none; font-size:14px; opacity:.86; }
+    .hero { background:#f6e7c6; border-bottom:5px solid var(--orange); padding:58px 28px 46px; }
+    .hero-inner, .application { width:min(100%, 900px); margin:0 auto; }
+    .eyebrow { color:var(--orange-dark); text-transform:uppercase; letter-spacing:.12em; font-weight:800; font-size:12px; }
+    h1 { margin:8px 0 12px; font:700 clamp(40px,6vw,64px)/.98 Georgia, serif; letter-spacing:-2.5px; }
+    .hero p { margin:0; max-width:650px; color:#393a37; font-size:18px; line-height:1.55; }
+    .notice { width:min(100%, 900px); margin:26px auto 0; padding:16px 18px; border:1px solid #e9ba62; background:#fff6df; color:#60470f; border-radius:8px; font-size:14px; line-height:1.45; }
+    .application { padding:42px 28px 70px; }
+    .prefill { display:none; padding:14px 16px; margin-bottom:28px; background:#e6f6ed; border:1px solid #a8d9bd; border-radius:8px; color:#165a3e; font-size:14px; }
+    .prefill.active { display:block; }
+    h2 { margin:0 0 7px; font:700 30px/1.1 Georgia,serif; letter-spacing:-.8px; }
+    .required { color:var(--orange-dark); font-weight:700; }
+    .form-section { border-top:1px solid var(--line); padding:28px 0; }
+    .form-section:first-of-type { border-top:0; padding-top:0; }
+    .grid { display:grid; grid-template-columns:1fr 1fr; gap:18px; }
+    label { display:block; margin:0 0 7px; font-weight:750; font-size:14px; }
+    input, textarea, select { width:100%; padding:13px 14px; border:1px solid #aaa69d; border-radius:5px; background:white; color:var(--ink); font:16px/1.4 inherit; }
+    input:focus, textarea:focus, select:focus { outline:3px solid rgba(240,91,50,.22); border-color:var(--orange); }
+    textarea { min-height:145px; resize:vertical; }
+    .field { margin:18px 0; }
+    .field small { display:flex; justify-content:space-between; margin-top:6px; color:var(--muted); font-size:12px; }
+    .help { margin:0 0 16px; color:var(--muted); line-height:1.55; }
+    .check { display:flex; align-items:flex-start; gap:10px; padding:17px; border:1px solid var(--line); border-radius:7px; background:#fffefa; }
+    .check input { width:19px; height:19px; margin:2px 0 0; accent-color:var(--teal); }
+    .check label { margin:0; font-weight:500; line-height:1.45; }
+    .actions { display:flex; align-items:center; gap:16px; padding-top:25px; }
+    button { border:0; border-radius:5px; background:var(--orange); color:white; padding:15px 20px; font-weight:800; font-size:16px; cursor:pointer; box-shadow:0 3px 0 var(--orange-dark); }
+    button:hover { background:var(--orange-dark); }
+    .save { color:var(--teal); background:none; box-shadow:none; padding:10px; }
+    #success { display:none; margin-top:26px; padding:20px; border-radius:8px; background:#e6f6ed; border:1px solid #a8d9bd; color:#155437; line-height:1.5; }
+    footer { padding:27px; text-align:center; background:var(--ink); color:#d9d6cf; font-size:13px; }
+    @media (max-width:650px) { .site-header { padding:18px 20px; } .site-header a { display:none; } .hero { padding:40px 20px 34px; } .application { padding:34px 20px 54px; } .grid { grid-template-columns:1fr; gap:0; } }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand"><span class="burst"></span> Miami Grant Offer</div>
+    <a href="#application">Grant application</a>
+  </header>
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="eyebrow">Miami-Dade microgrants</div>
+      <h1>Bring your good idea to life.</h1>
+      <p>Miami Grant Offer supports community-led projects that make Greater Miami more connected, creative, and resilient.</p>
+    </div>
+  </section>
+  <div class="notice"><strong>What we look for:</strong> a clear public benefit, a workable plan, local community connection, and a specific use for the grant. Applications are reviewed by local trustees.</div>
+  <main id="application" class="application">
+    <div id="prefill" class="prefill"><strong>Draft imported from Tidepath.</strong> Review every answer, add anything the funder needs, and submit only when you are ready.</div>
+    <h2>Tell us about your project</h2>
+    <p class="help">Fields marked <span class="required">*</span> are required. Please use your own words and confirm all information before you submit.</p>
+    <form id="grant-form">
+      <section class="form-section">
+        <div class="grid">
+          <div class="field"><label for="name"><span class="required">*</span> Your name</label><input id="name" required placeholder="Full name"></div>
+          <div class="field"><label for="email"><span class="required">*</span> Email</label><input id="email" type="email" required placeholder="you@example.org"></div>
+          <div class="field"><label for="organization">Organization</label><input id="organization" placeholder="Organization name"></div>
+          <div class="field"><label for="phone">Phone number</label><input id="phone" type="tel" placeholder="(305) 555-0123"></div>
+        </div>
+      </section>
+      <section class="form-section">
+        <div class="field"><label for="title"><span class="required">*</span> Project title</label><input id="title" required maxlength="110" placeholder="Name of the project"></div>
+        <div class="field"><label for="website">Project or organization website</label><input id="website" type="url" placeholder="https://"></div>
+        <div class="field"><label for="project"><span class="required">*</span> Tell us about your project</label><textarea id="project" required maxlength="2000" placeholder="What will happen, who is it for, and why does it matter?"></textarea><small><span>Describe the project, its benefit, and your plan.</span><span id="project-count">0 / 2000</span></small></div>
+        <div class="field"><label for="money"><span class="required">*</span> How will you use the money?</label><textarea id="money" required maxlength="500" placeholder="Be specific about what this grant will pay for."></textarea><small><span>A clear, distinguishable use is most helpful.</span><span id="money-count">0 / 500</span></small></div>
+        <div class="field"><label for="about"><span class="required">*</span> Tell us a little about your organization</label><textarea id="about" required maxlength="500" placeholder="Share your mission and relevant experience."></textarea><small><span>What prepares you to carry this out?</span><span id="about-count">0 / 500</span></small></div>
+        <div class="field"><label for="miami"><span class="required">*</span> How does this project impact Greater Miami?</label><textarea id="miami" required maxlength="700" placeholder="Explain the local connection and the people who will benefit."></textarea><small><span>Miami-Dade connection is required.</span><span id="miami-count">0 / 700</span></small></div>
+      </section>
+      <section class="form-section">
+        <h2>Supporting materials</h2>
+        <p class="help">You may add up to five images that help reviewers understand the project. Do not upload confidential participant information.</p>
+        <div class="field"><label for="images">Project images</label><input id="images" type="file" accept="image/*" multiple></div>
+      </section>
+      <section class="form-section">
+        <div class="check"><input id="confirm" type="checkbox" required><label for="confirm">I have reviewed this application and confirm it is accurate. I understand that submitting this form sends it to Miami Grant Offer for review.</label></div>
+        <div class="actions"><button type="submit">Submit application</button><button class="save" type="button" id="save-draft">Save draft on this device</button></div>
+        <div id="success"><strong>Application submitted for demo.</strong> In the real workflow, the funder receives the application only after this final human action.</div>
+      </section>
+    </form>
+  </main>
+  <footer>Miami Grant Offer · A fictional grant portal for the Tidepath prototype</footer>
+  <script>
+    const $ = id => document.getElementById(id);
+    const counts = [['project',2000],['money',500],['about',500],['miami',700]];
+    counts.forEach(([id,max]) => { const update = () => $(id + '-count').textContent = $(id).value.length + ' / ' + max; $(id).addEventListener('input', update); update(); });
+    let imported = null;
+    try { imported = JSON.parse(localStorage.getItem('miamiGrantOfferDraft') || 'null'); } catch (error) { imported = null; }
+    if (imported) {
+      $('name').value = imported.name || 'Claudette Rivera'; $('email').value = imported.email || 'claudette@tidepath.org'; $('organization').value = imported.organization || 'Tidepath Family Alliance'; $('title').value = imported.title || 'Youth Wellness in Miami-Dade'; $('project').value = imported.project || ''; $('money').value = imported.money || ''; $('about').value = imported.about || ''; $('miami').value = imported.miami || '';
+      $('prefill').classList.add('active'); counts.forEach(([id,max]) => $(id).dispatchEvent(new Event('input')));
+    }
+    $('save-draft').addEventListener('click', () => { localStorage.setItem('miamiGrantOfferForm', JSON.stringify(Object.fromEntries(new FormData($('grant-form'))))); $('save-draft').textContent = 'Draft saved'; });
+    $('grant-form').addEventListener('submit', event => { event.preventDefault(); $('success').style.display = 'block'; $('success').scrollIntoView({ behavior:'smooth', block:'center' }); });
+  </script>
+</body>
+</html>
